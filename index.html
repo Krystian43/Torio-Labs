@@ -9,39 +9,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta name="author" content="Krystian Jarecki"/>
     
-    <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Własne style -->
     <link rel="stylesheet" href="main.css">
+    
+    <style>
+        html { scroll-behavior: smooth; }
+    </style>
 </head>
 <body>
 
-    <!-- Nawigacja Bootstrap -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" role="navigation" style="position: sticky; top: 0; z-index: 1000;">
         <div class="container">
-            <!-- Nagłówek -->
             <a class="navbar-brand text-warning" href="#">Torio Labs</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="https://youtube.com/@Krystian_43">Kanał YouTube</a>
+                        <a class="nav-link text-white" href="https://youtube.com/@Krystian_43" data-i18n="nav_youtube">Kanał YouTube</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#projects">Projekty</a>
+                        <a class="nav-link text-white" href="#projects" data-i18n="nav_projects">Projekty</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#news">Wiadomości</a>
+                        <a class="nav-link text-white" href="#news" data-i18n="nav_news">Wiadomości</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="en-us.html">English</a>
+                        <a class="nav-link text-white" href="#contact" data-i18n="nav_contact">Kontakt</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#contact">Kontakt</a>
+                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                        <button onclick="toggleLanguage()" class="btn btn-sm btn-outline-warning" id="lang-btn">
+                            🇬🇧 EN
+                        </button>
                     </li>
                 </ul>
             </div>
@@ -50,11 +52,11 @@
 
     <main class="container mt-4">
         <section>
-            <h2 class="text-center">Witaj na stronie domowej.</h2>
+            <h2 class="text-center" data-i18n="welcome">Witaj na stronie domowej.</h2>
         </section>
 
         <section class="mt-4">
-            <h2 class="text-center">Kanał YouTube:</h2>
+            <h2 class="text-center" data-i18n="youtube_title">Kanał YouTube:</h2>
             <div class="text-center">
                 <a class="btn btn-primary text-dark" href="https://youtube.com/@Krystian_43" target="_blank">
                     <i class="bi bi-youtube"></i> Torio Studios
@@ -63,80 +65,79 @@
         </section>
 
         <section id="projects" class="mt-4">
-            <h2 class="text-center">Projekty</h2>
+            <h2 class="text-center" data-i18n="nav_projects">Projekty</h2>
             <ul class="list-group">
                 <li class="list-group-item bg-secondary">
-                    <a class="text-light" href="https://drive.google.com/drive/folders/1-CtqitlLuugKE1dkXSUc-mlUKuog43Mx?usp=sharing">Moje projekty Minecraft</a>
+                    <a class="text-light" href="https://drive.google.com/drive/folders/1-CtqitlLuugKE1dkXSUc-mlUKuog43Mx?usp=sharing" data-i18n="proj_mc">Moje projekty Minecraft</a>
                 </li>
                 <li class="list-group-item bg-secondary">
-                    <a class="text-light" href="https://sosw6elodz-my.sharepoint.com/:f:/g/personal/k_jarecki_sosw6_elodz_edu_pl/EkmqRNj4q1tItroSW1kuj_0BFYuNbdUPUPLYyRQl3shcNQ?e=zeFinF">Wszystko i nic – zbiór skryptów i plików :) </a>
+                    <a class="text-light" href="https://sosw6elodz-my.sharepoint.com/:f:/g/personal/k_jarecki_sosw6_elodz_edu_pl/EkmqRNj4q1tItroSW1kuj_0BFYuNbdUPUPLYyRQl3shcNQ?e=zeFinF" data-i18n="proj_all">Wszystko i nic – zbiór skryptów i plików :)</a>
                 </li>
             </ul>
-            <p class="text-danger mt-3 text-center">[!] Przeróbki zostały usunięte w wyniku błędu usługi chmurowej.</p>
+            <p class="text-danger mt-3 text-center" data-i18n="proj_alert">[!] Przeróbki zostały usunięte w wyniku błędu usługi chmurowej.</p>
         </section>
 
-        <!-- Sekcja Wiadomości -->
         <section id="news" class="mt-4">
-            <h2 class="text-center">Wiadomości</h2>
+            <h2 class="text-center" data-i18n="nav_news">Wiadomości</h2>
 
             <div class="card bg-dark text-light my-3">
                 <div class="card-body">
                     <div class="d-flex align-items-center">
-                        <img src="res/AphDyAggkAJw0qUF5S-Lu4MGREZjvXexdtkCvkTasL-ynSMLq0XvGOcMokWS3QMhml-ezAWB=s600-c-k-c0x00ffffff-no-rj-rp-mo.jpeg" width="50px" height="50px" class="me-3" alt="Avatar">
+                        <img src="res/AphDyAggkAJw0qUF5S-Lu4MGREZjvXexdtkCvkTasL-ynSMLq0XvGOcMokWS3QMhml-ezAWB=s600-c-k-c0x00ffffff-no-rj-rp-mo.jpeg" width="50" height="50" class="me-3" alt="Avatar">
                         <div>
                             <h5 class="mb-0">Torio Labs</h5>
                             <small class="text-light">31.05.2025</small>
                         </div>
                     </div>
-                    <p class="mt-3">
-                        Poprawiony pasek nawigacyjny i zamknięcie strony naszego partnera Club 130:
-                    </p>
-                    <ul>
-                        <li>Nasz partner Club 130 zakończył działanie.</li>
-                        <li>Od teraz pasek nawigacyjny powinien się lepiej wyświetlać.</li>
-                    </ul>
+                    <div class="mt-3" data-i18n="news_may">
+                        <p>Poprawiony pasek nawigacyjny i zamknięcie strony naszego partnera Club 130:</p>
+                        <ul>
+                            <li>Nasz partner Club 130 zakończył działanie.</li>
+                            <li>Od teraz pasek nawigacyjny powinien się lepiej wyświetlać.</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
             <div class="card bg-dark text-light my-3">
                 <div class="card-body">
                     <div class="d-flex align-items-center">
-                        <img src="res/AphDyAggkAJw0qUF5S-Lu4MGREZjvXexdtkCvkTasL-ynSMLq0XvGOcMokWS3QMhml-ezAWB=s600-c-k-c0x00ffffff-no-rj-rp-mo.jpeg" width="50px" height="50px" class="me-3" alt="Avatar">
+                        <img src="res/AphDyAggkAJw0qUF5S-Lu4MGREZjvXexdtkCvkTasL-ynSMLq0XvGOcMokWS3QMhml-ezAWB=s600-c-k-c0x00ffffff-no-rj-rp-mo.jpeg" width="50" height="50" class="me-3" alt="Avatar">
                         <div>
                             <h5 class="mb-0">Torio Labs</h5>
                             <small class="text-light">21.03.2025 | 10:42</small>
                         </div>
                     </div>
-                    <p class="mt-3">
-                        Duża aktualizacja strony właśnie została opublikowana! Oto nowe i ekscytujące zmiany:
-                    </p>
-                    <ul>
-                        <li>Całkowity redesign strony.</li>
-                        <li>Usunięto logowanie które nie istniało.</li>
-                        <li>Strona ma partnerów - Dziękujemy Club 130.</li>
-                        <li>Wersja na telefony powinna wyświetlać się prawidłowo</li>
-                    </ul>
+                    <div class="mt-3" data-i18n="news_mar">
+                        <p>Duża aktualizacja strony właśnie została opublikowana! Oto nowe i ekscytujące zmiany:</p>
+                        <ul>
+                            <li>Całkowity redesign strony.</li>
+                            <li>Usunięto logowanie które nie istniało.</li>
+                            <li>Strona ma partnerów - Dziękujemy Club 130.</li>
+                            <li>Wersja na telefony powinna wyświetlać się prawidłowo</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
             <div class="card bg-dark text-light my-3">
                 <div class="card-body">
                     <div class="d-flex align-items-center">
-                        <img src="res/AphDyAggkAJw0qUF5S-Lu4MGREZjvXexdtkCvkTasL-ynSMLq0XvGOcMokWS3QMhml-ezAWB=s600-c-k-c0x00ffffff-no-rj-rp-mo.jpeg" width="50px" height="50px" class="me-3" alt="Avatar">
+                        <img src="res/AphDyAggkAJw0qUF5S-Lu4MGREZjvXexdtkCvkTasL-ynSMLq0XvGOcMokWS3QMhml-ezAWB=s600-c-k-c0x00ffffff-no-rj-rp-mo.jpeg" width="50" height="50" class="me-3" alt="Avatar">
                         <div>
                             <h5 class="mb-0">Torio Labs</h5>
                             <small class="text-light">18.01.2025 | 17:47</small>
                         </div>
                     </div>
-                    <p class="mt-3">
-                        Nowa wersja strony właśnie została opublikowana! Oto nowe i ekscytujące zmiany:
-                    </p>
-                    <ul>
-                        <li>Dodano stopkę</li>
-                        <li>Zmieniono ułożenie tekstu</li>
-                        <li>Dodano sekcję wiadomości</li>
-                        <li>Przetłumaczono stronę na <a href="en-us.html">język angielski</a></li>
-                    </ul>
+                    <div class="mt-3" data-i18n="news_jan">
+                        <p>Nowa wersja strony właśnie została opublikowana! Oto nowe i ekscytujące zmiany:</p>
+                        <ul>
+                            <li>Dodano stopkę</li>
+                            <li>Zmieniono ułożenie tekstu</li>
+                            <li>Dodano sekcję wiadomości</li>
+                            <li>Przetłumaczono stronę na język angielski</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
@@ -148,9 +149,84 @@
     </main> 
 
     <footer class="bg-primary text-center text-dark py-3 mt-4">
-        <pre class="m-0">Wersja strony: 2.0   |   &copy; Torio Labs 2025  |   Zasilane przez: Github</pre>
+        <pre class="m-0" data-i18n="footer_text">Wersja strony: 2.0   |   &copy; Torio Labs 2025  |   Zasilane przez: Github</pre>
     </footer>
 
+    <script>
+        // Nasz prosty słownik tłumaczeń
+        const translations = {
+            pl: {
+                nav_youtube: "Kanał YouTube",
+                nav_projects: "Projekty",
+                nav_news: "Wiadomości",
+                nav_contact: "Kontakt",
+                welcome: "Witaj na stronie domowej.",
+                youtube_title: "Kanał YouTube:",
+                proj_mc: "Moje projekty Minecraft",
+                proj_all: "Wszystko i nic – zbiór skryptów i plików :)",
+                proj_alert: "[!] Przeróbki zostały usunięte w wyniku błędu usługi chmurowej.",
+                news_may: "<p>Poprawiony pasek nawigacyjny i zamknięcie strony naszego partnera Club 130:</p><ul><li>Nasz partner Club 130 zakończył działanie.</li><li>Od teraz pasek nawigacyjny powinien się lepiej wyświetlać.</li></ul>",
+                news_mar: "<p>Duża aktualizacja strony właśnie została opublikowana! Oto nowe i ekscytujące zmiany:</p><ul><li>Całkowity redesign strony.</li><li>Usunięto logowanie które nie istniało.</li><li>Strona ma partnerów - Dziękujemy Club 130.</li><li>Wersja na telefony powinna wyświetlać się prawidłowo</li></ul>",
+                news_jan: "<p>Nowa wersja strony właśnie została opublikowana! Oto nowe i ekscytujące zmiany:</p><ul><li>Dodano stopkę</li><li>Zmieniono ułożenie tekstu</li><li>Dodano sekcję wiadomości</li><li>Przetłumaczono stronę na język angielski</li></ul>",
+                footer_text: "Wersja strony: 2.0   |   &copy; Torio Labs 2025  |   Zasilane przez: Github"
+            },
+            en: {
+                nav_youtube: "YouTube Channel",
+                nav_projects: "Projects",
+                nav_news: "News",
+                nav_contact: "Contact",
+                welcome: "Welcome to the homepage.",
+                youtube_title: "YouTube Channel:",
+                proj_mc: "My Minecraft Projects",
+                proj_all: "Everything and nothing – a collection of scripts and files :)",
+                proj_alert: "[!] Modifications have been removed due to a cloud service error.",
+                news_may: "<p>Improved navbar and closure of our partner Club 130:</p><ul><li>Our partner Club 130 has closed down.</li><li>The navbar should now display better.</li></ul>",
+                news_mar: "<p>Big site update just published! Here are the new and exciting changes:</p><ul><li>Complete redesign of the site.</li><li>Removed login that never existed.</li><li>The site now has partners - Thanks Club 130.</li><li>Mobile version should now display correctly.</li></ul>",
+                news_jan: "<p>A new version of the site has just been published! Here are the new and exciting changes:</p><ul><li>Added a footer</li><li>Changed text layout</li><li>Added a news section</li><li>Translated the page to English</li></ul>",
+                footer_text: "Page version: 2.0   |   &copy; Torio Labs 2025   |   Powered by: Github"
+            }
+        };
+
+        // Główna funkcja ładująca dany język
+        function setLanguage(lang) {
+            // Zmiana atrybutu głównego dokumentu
+            document.documentElement.lang = lang;
+            
+            // Szukamy wszystkich elementów z atrybutem data-i18n
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    // Używamy innerHTML, aby bezpiecznie renderować listy (<ul>, <li>) z sekcji Wiadomości
+                    element.innerHTML = translations[lang][key];
+                }
+            });
+
+            // Aktualizacja wyglądu przycisku przełączania
+            const btn = document.getElementById('lang-btn');
+            if(lang === 'pl') {
+                btn.innerHTML = '🇬🇧 EN';
+            } else {
+                btn.innerHTML = '🇵🇱 PL';
+            }
+        }
+
+        // Funkcja przypisana pod przycisk
+        function toggleLanguage() {
+            const currentLang = document.documentElement.lang;
+            const newLang = currentLang === 'pl' ? 'en' : 'pl';
+            
+            setLanguage(newLang);
+            // Zapis do localStorage, aby przeglądarka pamiętała język
+            localStorage.setItem('torioLabsLang', newLang);
+        }
+
+        // Przy pierwszym odpaleniu strony sprawdzamy, czy użytkownik ma zapisany język
+        window.onload = () => {
+            const savedLang = localStorage.getItem('torioLabsLang');
+            if (savedLang) {
+                setLanguage(savedLang);
+            }
+        };
+    </script>
 </body>
 </html>
-
