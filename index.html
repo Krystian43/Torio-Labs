@@ -164,7 +164,7 @@
         </section>
         
         <section id="contact" class="mt-4">
-            <p class="text-center" data-i18n="ext_contact"> </p>
+            <p id="tally-hint" class="text-center text-muted small text-decoration-none"></p>
             <iframe data-tally-src="https://tally.so/embed/wA1zjz?alignLeft=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="100" frameborder="0" marginheight="0" marginwidth="0" title="Kontakt"></iframe>
             <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
         </section>
@@ -191,7 +191,6 @@
                 news_may: "<p>Poprawiony pasek nawigacyjny i zamknięcie strony naszego partnera Club 130:</p><ul><li>Nasz partner Club 130 zakończył działanie.</li><li>Od teraz pasek nawigacyjny powinien się lepiej wyświetlać.</li></ul>",
                 news_mar: "<p>Duża aktualizacja strony właśnie została opublikowana! Oto nowe i ekscytujące zmiany:</p><ul><li>Całkowity redesign strony.</li><li>Usunięto logowanie które nie istniało.</li><li>Strona ma partnerów - Dziękujemy Club 130.</li><li>Wersja na telefony powinna wyświetlać się prawidłowo</li></ul>",
                 news_jan: "<p>Nowa wersja strony właśnie została opublikowana! Oto nowe i ekscytujące zmiany:</p><ul><li>Dodano stopkę</li><li>Zmieniono ułożenie tekstu</li><li>Dodano sekcję wiadomości</li><li>Przetłumaczono stronę na język angielski</li></ul>",
-                ext_contact: " ",
                 footer_text: "Wersja strony: 2.0   |   &copy; Torio Labs 2025  |   Zasilane przez: Github"
             },
             en: {
@@ -218,14 +217,25 @@
             // Zmiana atrybutu głównego dokumentu
             document.documentElement.lang = lang;
             
-            // Szukamy wszystkich elementów z atrybutem data-i18n
+            // Wyszukiwanie atrybutu data-i18n
             document.querySelectorAll('[data-i18n]').forEach(element => {
                 const key = element.getAttribute('data-i18n');
                 if (translations[lang] && translations[lang][key]) {
-                    // Używamy innerHTML, aby bezpiecznie renderować listy (<ul>, <li>) z sekcji Wiadomości
+                    
                     element.innerHTML = translations[lang][key];
                 }
             });
+
+            const hintElement = document.getElementById('tally-hint');
+            if (hintElement) {
+                if (lang === 'en' && translations.en.ext_contact) {
+                    hintElement.textContent = translations.en.ext_contact;
+                    hintElement.style.display = 'block'; // Pokazuje element, gdy jest tekst
+                } else {
+                    hintElement.textContent = '';
+                    hintElement.style.display = 'none';  // Całkowicie znika w wersji PL, nie psując układu
+                }
+            }
 
             // Aktualizacja wyglądu przycisku przełączania
             const btn = document.getElementById('lang-btn');
